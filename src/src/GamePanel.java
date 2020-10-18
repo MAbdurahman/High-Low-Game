@@ -38,7 +38,6 @@ public class GamePanel extends JPanel {
      * class of the JPanel).  On the bottom is a JPanel that holds the three buttons.  Also,
      * the CardPanel listens for the ActionEvents from the buttons and does the real work
      * for the program.
-     * @param Void
      */
     @SuppressWarnings("OverridableMethodCallInConstructor")
     public GamePanel() {
@@ -106,7 +105,6 @@ public class GamePanel extends JPanel {
         /**
          * loadImage Method - Loads the image from the file "cardDeck.png". If the file is
          * found, then the cardImages will refer to the image. If not, cardImage will be null
-         * @param Void
          */
         private void loadImage() {
            ClassLoader classLoader = this.getClass().getClassLoader();
@@ -120,8 +118,7 @@ public class GamePanel extends JPanel {
          * doHigher Method - The actionPerformed Method calls this method when
          * the user clicks "Higher" button. The user's prediction is checked.
          * The game ends, if the user's prediction is wrong or if the user has
-         * made three correction pre- dictions.
-         * @param Void
+         * made three correction predictions.
          */
         void doHigher() {
             if (gameInProgress == false) {
@@ -155,8 +152,7 @@ public class GamePanel extends JPanel {
          * doLower Method - The actionPerformed Method calls this method when
          * the user clicks "Lower" button. The user's prediction is checked. The
          * game ends, if the user's prediction is wrong or if the user has made
-         * three correction pre- dictions.
-         * @param Void
+         * three correction predictions.
          */
         void doLower() {
             if (gameInProgress == false) {
@@ -190,7 +186,6 @@ public class GamePanel extends JPanel {
          * doNewGame Method - The nested class CardPanel Constructor and the
          * actionPerformed Method calls this method, if the user clicks the "New
          * Game" button to start a new game.
-         * @param Void
          */
         void doNewGame() {
             if (gameInProgress) {
@@ -214,7 +209,7 @@ public class GamePanel extends JPanel {
          * and it draws all the dealt cards on the canvas. If the game is in
          * progress, an extra card is drawn face down representing the card to
          * be dealt next.
-         * @param Void
+         * @param g - the Graphics context
          */
         @Override
         public void paintComponent(Graphics g) {
@@ -239,7 +234,7 @@ public class GamePanel extends JPanel {
          * Interface, and responds when the user clicks a button by calling the appropriate
          * method. The buttons are created and listening is set up in the constructor of the
          * GamePanel.
-         * @param ActionEvent - the event of clicking on the buttons
+         * @param event- the ActionEvent of clicking on the buttons
          */
         @Override
         public void actionPerformed(ActionEvent event) {
@@ -262,11 +257,11 @@ public class GamePanel extends JPanel {
          * drawCard Method - Draw a card in a rectangle with its upper left corner
          * at a specified point (X, Y). Drawing the card requires the image file
          * "cardDeck.png".
-         * @param Graphics - The graphics context
-         * @param Card - The card to be drawn. If the value is null, then a face-down card
+         * @param g - The Graphics context
+         * @param card - The Card to be drawn. If the value is null, then a face-down card
          * is drawn.
-         * @param Int - The X coordinate of the upper left corner of the card.
-         * @param Int - The Y coordinate of the upper left corner of the card.
+         * @param x - The integer X coordinate of the upper left corner of the card.
+         * @param y - The integer Y coordinate of the upper left corner of the card.
          */
         public void drawCard(Graphics g, Card card, int x, int y) {
             Graphics2D g2d = (Graphics2D) g;
@@ -310,7 +305,7 @@ public class GamePanel extends JPanel {
     /**
      * main Method - Contains the command line arguments.  In this application it opens a window 
      * that displays a High Low Game.
-     * @param String[] - the command line arguments
+     * @param args - the command line arguments in the form of String[]
      */
     public static void main(String[] args) {
         JFrame window = new JFrame("High Low Game");
